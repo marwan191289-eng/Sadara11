@@ -1,0 +1,6 @@
+{
+  "name": "Course Manager Pro - منصة التدريب والدورات",
+  "description": "منصة إدارة وحجز الدورات والدروس المباشرة التفاعلية، بوابات الدفع الإلكتروني، ولوحة تحكم المدرس المتطورة",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

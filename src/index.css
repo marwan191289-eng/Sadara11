@@ -1,0 +1,267 @@
+@import "tailwindcss";
+
+/* Class-based Dark Mode variant for Tailwind CSS v4 */
+@variant dark (&:where(.dark, :is(.dark *)));
+@custom-variant dark (&:where(.dark, :is(.dark *)));
+
+@layer base {
+  :root {
+    --font-sans: 'Cairo', 'IBM Plex Sans Arabic', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-sans);
+  }
+
+  html.light,
+  body.light,
+  [data-theme="light"] {
+    color-scheme: light;
+  }
+
+  html.dark,
+  body.dark,
+  [data-theme="dark"] {
+    color-scheme: dark;
+  }
+
+  body {
+    overflow-x: hidden;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+/* Custom platform utility classes */
+.sadara-panel {
+  background-color: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+.dark .sadara-panel,
+html.dark .sadara-panel {
+  background-color: #0c1328;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.sadara-subtle {
+  background-color: rgba(248, 250, 252, 0.9);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.dark .sadara-subtle,
+html.dark .sadara-subtle {
+  background-color: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.sadara-btn-primary {
+  background: linear-gradient(135deg, #1d4ed8, #0284c7, #06b6d4);
+  color: #ffffff;
+  font-weight: 700;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  box-shadow: 0 4px 14px 0 rgba(6, 182, 212, 0.25);
+}
+
+.sadara-btn-primary:hover {
+  background: linear-gradient(135deg, #1e40af, #0369a1, #0891b2);
+  transform: translateY(-1.5px);
+  box-shadow: 0 6px 20px 0 rgba(6, 182, 212, 0.35);
+}
+
+.sadara-input {
+  background-color: #ffffff;
+  border: 1px solid rgba(203, 213, 225, 0.9);
+  color: #0f172a;
+}
+
+.dark .sadara-input,
+html.dark .sadara-input {
+  background-color: #070d1e;
+  border-color: rgba(255, 255, 255, 0.15);
+  color: #f8fafc;
+}
+
+.sadara-input:focus {
+  outline: none;
+  border-color: #06b6d4;
+  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.2);
+}
+
+/* Elegant dropdown styles that adapt smoothly to Light and Dark modes */
+select.sadara-select,
+.sadara-select {
+  background-color: #ffffff;
+  color: #0f172a;
+  border: 1px solid rgba(203, 213, 225, 0.9);
+}
+
+.dark select.sadara-select,
+html.dark .sadara-select {
+  background-color: #0c1328 !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+.sadara-select option {
+  background-color: #ffffff;
+  color: #0f172a;
+  padding: 8px;
+}
+
+.dark .sadara-select option,
+html.dark .sadara-select option {
+  background-color: #0c1328 !important;
+  color: #ffffff !important;
+}
+
+/* Status Badges */
+.sadara-status-pending {
+  background-color: rgba(245, 158, 11, 0.12);
+  color: #b45309;
+  border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+.dark .sadara-status-pending,
+html.dark .sadara-status-pending {
+  color: #fbbf24;
+}
+
+.sadara-status-approved {
+  background-color: rgba(6, 182, 212, 0.12);
+  color: #0891b2;
+  border: 1px solid rgba(6, 182, 212, 0.25);
+}
+
+.dark .sadara-status-approved,
+html.dark .sadara-status-approved {
+  color: #22d3ee;
+}
+
+.sadara-status-confirmed {
+  background-color: rgba(16, 185, 129, 0.12);
+  color: #047857;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.dark .sadara-status-confirmed,
+html.dark .sadara-status-confirmed {
+  color: #34d399;
+}
+
+.sadara-status-rejected {
+  background-color: rgba(244, 63, 94, 0.12);
+  color: #be123c;
+  border: 1px solid rgba(244, 63, 94, 0.25);
+}
+
+.dark .sadara-status-rejected,
+html.dark .sadara-status-rejected {
+  color: #fb7185;
+}
+
+/* Keyframes */
+@keyframes pulseSlow {
+  0%, 100% { transform: scale(1); opacity: 0.15; }
+  50% { transform: scale(1.08); opacity: 0.25; }
+}
+
+.animate-pulse-slow {
+  animation: pulseSlow 8s ease-in-out infinite;
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 20s linear infinite;
+}
+
+/* =========================================================
+   Interactive Glow Effect on Click / Press for Buttons & Cards
+   (وهج فوري وتفاعلي عند الضغط على أي زر أو بطاقة)
+   ========================================================= */
+
+/* 1. Buttons & Action Elements Active Glow */
+button,
+[role="button"],
+.sadara-btn-primary,
+a[role="button"] {
+  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.2s ease,
+              filter 0.2s ease;
+  position: relative;
+}
+
+button:active,
+[role="button"]:active,
+.sadara-btn-primary:active {
+  transform: scale(0.972);
+  box-shadow: 0 0 25px rgba(6, 182, 212, 0.75),
+              0 0 50px rgba(59, 130, 246, 0.45),
+              inset 0 0 14px rgba(255, 255, 255, 0.3) !important;
+  filter: brightness(1.12) drop-shadow(0 0 10px rgba(6, 182, 212, 0.6));
+}
+
+/* 2. Cards & Containers Active Glow */
+.rounded-2xl,
+.rounded-3xl,
+.sadara-panel,
+.card-glow,
+[data-card="true"] {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.2s ease;
+}
+
+/* When clicking / pressing on any card */
+.rounded-2xl:active,
+.rounded-3xl:active,
+.sadara-panel:active,
+.card-glow:active,
+[data-card="true"]:active {
+  box-shadow: 0 0 35px rgba(6, 182, 212, 0.55),
+              0 0 70px rgba(59, 130, 246, 0.35),
+              inset 0 0 20px rgba(6, 182, 212, 0.1) !important;
+  border-color: rgba(6, 182, 212, 0.85) !important;
+}
+
+/* 3. Dynamic Click Glow Pulse Class */
+.sadara-glow-pulse {
+  box-shadow: 0 0 35px rgba(6, 182, 212, 0.85),
+              0 0 70px rgba(14, 165, 233, 0.55),
+              inset 0 0 18px rgba(255, 255, 255, 0.25) !important;
+  border-color: #06b6d4 !important;
+  transition: box-shadow 0.45s ease-out, border-color 0.45s ease-out !important;
+}
+
+/* 4. Radial Click Ripple Wave */
+@keyframes clickGlowWave {
+  0% {
+    transform: translate(-50%, -50%) scale(0.15);
+    opacity: 0.95;
+  }
+  60% {
+    opacity: 0.65;
+    filter: blur(2px);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.6);
+    opacity: 0;
+    filter: blur(8px);
+  }
+}
+
+.sadara-click-wave {
+  position: absolute;
+  border-radius: 9999px;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.95) 0%, rgba(6, 182, 212, 0.55) 40%, rgba(37, 99, 235, 0.25) 65%, rgba(6, 182, 212, 0) 80%);
+  box-shadow: 0 0 32px rgba(6, 182, 212, 0.9);
+  animation: clickGlowWave 0.55s cubic-bezier(0.1, 0.8, 0.2, 1) forwards;
+  z-index: 9999;
+}
