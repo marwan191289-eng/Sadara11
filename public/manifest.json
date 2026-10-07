@@ -1,0 +1,30 @@
+{
+  "name": "منصة صدارة التعليمية | Course Manager Pro",
+  "short_name": "صدارة",
+  "description": "منصة التفوق في اختبارات القدرات والتحصيلي والكيمياء النووية 1447هـ بإشراف م. محمود إسماعيل شلتوت.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#060913",
+  "theme_color": "#06b6d4",
+  "lang": "ar",
+  "dir": "rtl",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    }
+  ]
+}
